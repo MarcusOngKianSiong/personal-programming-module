@@ -1,5 +1,10 @@
-function test(){
-    return "testing successful!"
+const funcs = {
+    directory: require('./fileSystem/directory.js'),
+    generalTest: ()=>{
+        return "testing successful!!!"
+    }
 }
 
-module.exports = test
+
+
+module.exports = funcs
