@@ -1,0 +1,19 @@
+{
+  "name": "personal_programming_module",
+  "version": "1.0.0",
+  "description": "A module full of standalone functions that can be reused across multiple projects to increase efficiency by reducing the amount of thinking about problems that were solved previously.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MarcusOngKianSiong/personal-programming-module.git"
+  },
+  "author": "Marcus Ong Kian Siong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcusOngKianSiong/personal-programming-module/issues"
+  },
+  "homepage": "https://github.com/MarcusOngKianSiong/personal-programming-module#readme"
+}
