@@ -4,7 +4,7 @@ function testDirectoryAccess(){
     return "test successful!!!"
 }
 
-async function findFolderInDirectory(initialDirectory,dirPattern,layers){
+async function findFolderInDirectory(initialDirectory,dirPattern,layers,type="path"){
     
     /*
 
@@ -57,7 +57,7 @@ async function findFolderInDirectory(initialDirectory,dirPattern,layers){
         const stat = await fs.stat(initialDirectory+`/${current}`);
         if(stat.isDirectory()){
             if(layers !== 1){
-                const recursive = await findFolderInDirectory(initialDirectory + `/${current}`,dirPattern,layers-1);
+                const recursive = await findFolderInDirectory(initialDirectory + `/${current}`,dirPattern,layers-1,type);
                 if(recursive){
                     return recursive;
                 }
@@ -66,7 +66,11 @@ async function findFolderInDirectory(initialDirectory,dirPattern,layers){
                 const regex = new RegExp(dirPattern);
                 const outcome = regex.test(current)
                 if(outcome){
-                    return initialDirectory + `/${current}`;
+                    if(type === "path"){
+                        return initialDirectory + `/${current}`;
+                    }else{
+                        return current;
+                    }   
                 }
             }
         }

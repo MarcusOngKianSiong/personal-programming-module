@@ -1,6 +1,6 @@
 {
   "name": "personal_programming_module",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "A module full of standalone functions that can be reused across multiple projects to increase efficiency by reducing the amount of thinking about problems that were solved previously.",
   "main": "index.js",
   "scripts": {
