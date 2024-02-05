@@ -74,4 +74,34 @@ async function findFolderInDirectory(initialDirectory,dirPattern,layers){
     return false;
 }
 
-module.exports = {findFolderInDirectory,testDirectoryAccess}
+async function checkIfDirectory(itemPath){
+    const stat = await fs.stat(itemPath);
+    if(stat.isDirectory()){
+        return true
+    }else{
+        return false
+    }
+}
+
+async function listAllDirectoryNamesInADirectory(location){
+    const strLen = location.length;
+    if(location[strLen-1] === "/" || location[strLen-1] === "\\" ){
+        location = location.substring(0,strLen-1);
+    }
+    const content = await fs.readdir(location,'utf8');
+    const length = content.length;
+    if(length !== 0){
+        const arr = []
+        for(let i = 0;i<length;i++){
+            const current = content[i];
+            if(await checkIfDirectory(location+"/"+current)){
+                arr.push(current);
+            }
+        }
+        return arr
+    }
+    return false
+}
+
+
+module.exports = {findFolderInDirectory,testDirectoryAccess,listAllDirectoryNamesInADirectory,checkIfDirectory}
