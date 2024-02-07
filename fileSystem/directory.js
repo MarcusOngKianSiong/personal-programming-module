@@ -104,7 +104,9 @@ async function listAllDirectoryNamesInADirectory(location){
         }
         return arr
     }
+    
     return false
+    
 }
 
 
